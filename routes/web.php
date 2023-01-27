@@ -18,4 +18,5 @@ use App\Http\Controllers\SiswaController;
 // });
 
 Route::get('/', [SiswaController::class,'index']);
-Route::get('/create', SiswaController)
+Route::get('/create', [SiswaController::class, 'create']);
+Route::post('/store',[SiswaController::class, 'store']);

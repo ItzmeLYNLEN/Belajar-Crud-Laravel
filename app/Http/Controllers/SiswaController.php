@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\M_Siswa;
 
 class SiswaController extends Controller
 {
@@ -13,6 +14,7 @@ class SiswaController extends Controller
      */
     public function index()
     {
+        $data = M_Siswa::all();
         return view('index');
     }
 
@@ -23,7 +25,7 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -34,7 +36,9 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->except(['_token']);
+        M_Siswa::insert($data);
+        return redirect('/');
     }
 
     /**

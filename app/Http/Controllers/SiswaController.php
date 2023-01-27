@@ -15,7 +15,9 @@ class SiswaController extends Controller
     public function index()
     {
         $data = M_Siswa::all();
-        return view('index');
+        return view('index')->with([
+            'data' => $data
+        ]);
     }
 
     /**

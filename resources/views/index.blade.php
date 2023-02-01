@@ -26,8 +26,8 @@
                                 <td>{{ $dataSiswa->nis }}</td>
                                 <td>{{ $dataSiswa->alamat }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-warning">Edit</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="{{url('/show/'.$dataSiswa->id)}}" class="btn btn-warning">Edit</a>
+                                    <a href="{{url('/destroy/'.$dataSiswa->id)}}" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

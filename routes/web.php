@@ -20,3 +20,6 @@ use App\Http\Controllers\SiswaController;
 Route::get('/', [SiswaController::class,'index']);
 Route::get('/create', [SiswaController::class, 'create']);
 Route::post('/store',[SiswaController::class, 'store']);
+Route::get('/show/{id}',[SiswaController::class, 'show']);
+Route::post('/update/{id}',[SiswaController::class, 'update']);
+Route::get('/destroy/{id}',[SiswaController::class, 'destroy']);

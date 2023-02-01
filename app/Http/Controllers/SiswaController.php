@@ -51,7 +51,10 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = M_Siswa::findOrfail($id);
+        return view('show')->with([
+            'data' => $data
+        ]);
     }
 
     /**
@@ -74,7 +77,10 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = M_Siswa::findOrfail($id);
+        $data = $request->except(['_token']);
+        $item->update($data);
+        return redirect('/');
     }
 
     /**
@@ -85,6 +91,8 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = M_Siswa::findOrfail($id);
+        $item->delete();
+        return redirect('/');
     }
 }

@@ -38,6 +38,21 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'nama' => 'required|unique:siswa|max:255',
+            'nis' => 'required|unique:siswa|max:255',
+            'alamat' => 'required|unique:siswa|max:255',
+        ];
+        $message = [
+            'nama.required' => 'Nama blom di isi',
+            'nis.required' => 'Nis blom di isi',
+            'alamat.required' => 'Alamat blom di isi',
+
+            'nama.unique' => 'Nama Stelah dipakai',
+            'nis.unique' => 'Nis Stelah dipakai',
+
+        ];
+        $validated = $request->validate($rules,$message);
         $data = $request->except(['_token']);
         M_Siswa::insert($data);
         return redirect('/');

@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nama">Alamat</label>
-                        <textarea name="alamat" class="form-control" cols="30" rows="10" value="{{ old('alamat') }}" placeholder="Bogor"></textarea>
+                        <textarea name="alamat" class="form-control" cols="30" rows="10"  placeholder="Bogor">{{ old('alamat') }}</textarea>
                         @error('alamat')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
